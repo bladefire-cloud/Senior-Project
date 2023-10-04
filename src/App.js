@@ -1,10 +1,9 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './Pages/LoginPage';
+import HomePage from './Pages/HomePage';
 import { Routes,Route } from 'react-router-dom';
-
-
-
+import StatisticsPage from './Pages/StatisticsPage';
 
 function setToken(userToken) {
   console.log("tokenTEst")
@@ -18,14 +17,8 @@ function getToken() {
   return userToken?.token
 }
 
-
-
-
-
-
 function App() {
 
-  
   const token = getToken();
 
   if(!token){
@@ -39,12 +32,13 @@ function App() {
     );
 }
 
-
   return (
     <div >
      <Routes>
-      <Route path="/" exact={true} index element={<LoginPage setToken={setToken}/>}/>
-     </Routes>
+      <Route path="/" exact={true} index element={<LoginPage setToken={setToken}/>}/>  
+      <Route path="/HomePage" exact={true} element={<HomePage/>}/>
+      <Route path="/StatisticsPage" exact={true} element={<StatisticsPage/>}/>
+    </Routes>
     </div>
   );
 }

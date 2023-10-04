@@ -1,6 +1,6 @@
 import LoginForm from "../Components/LoginForm";
 
-const LoginPage = ({setToken}) => {
+const HomePage = ({setToken}) => {
         
     return (
         // Listing contents in table format:
@@ -10,4 +10,4 @@ const LoginPage = ({setToken}) => {
     )
 }
 
-export default LoginPage;
+export default HomePage;

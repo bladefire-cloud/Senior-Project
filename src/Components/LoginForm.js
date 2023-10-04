@@ -4,6 +4,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Center from './center';
 
+
 <div style={{
             display: 'flex',
             justifyContent: 'center',
@@ -85,7 +86,6 @@ const handleLogin = (e) => {
       setToken(res);
       window.location.href="/movietable";
     });
-
 }
 
 
@@ -93,7 +93,7 @@ const handleLogin = (e) => {
     <>
     <Center>
     <Container style={{width: '50%',backgroundColor: 'white', padding: '5%', borderRadius: '10px'}}>
-      <FormLabel style={{}}>Login Page</FormLabel>
+      <FormLabel style={{fontSize: '23px', marginBottom: "8%"}}>Tactical Fitness Tracker</FormLabel>
       <FloatingLabel
         controlId="floatingInput"
         label="Email address"
@@ -108,8 +108,8 @@ const handleLogin = (e) => {
         onChange={ (e) => onInputChange(e)}
         name="password"/>
       </FloatingLabel>
-      <Button variant = "outline-warning" style={{marginTop: '5%', marginRight: '5%'}} onClick={handleLogin}>Login</Button>
-      <Button variant="outline-warning" style={{marginTop: '5%'}} onClick = {handleShow}>Create Account</Button>
+      <Button variant = "outline-info" style={{marginTop: '5%', marginRight: '5%'}} onClick={handleLogin}>Login</Button>
+      <Button variant="outline-info" style={{marginTop: '5%'}} onClick = {handleShow}>Create Account</Button>
       </Container>
       </Center>
       
@@ -151,7 +151,7 @@ const handleLogin = (e) => {
       />
       </Modal.Body>
       <Modal.Footer>
-        <Button variant = "outline-warning" onClick = {handleSubmit}>Submit</Button>
+        <Button variant = "outline-info" onClick = {handleSubmit}>Submit</Button>
       </Modal.Footer>
       </Modal>
 
