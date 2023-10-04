@@ -93,7 +93,7 @@ const handleLogin = (e) => {
     <>
     <Center>
     <Container style={{width: '50%',backgroundColor: 'white', padding: '5%', borderRadius: '10px'}}>
-      <FormLabel style={{}}>Tactical Fitness Tracker</FormLabel>
+      <FormLabel style={{fontSize: '23px', marginBottom: "8%"}}>Tactical Fitness Tracker</FormLabel>
       <FloatingLabel
         controlId="floatingInput"
         label="Email address"
