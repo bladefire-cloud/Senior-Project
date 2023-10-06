@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Container, FormLabel, Modal } from 'react-bootstrap';
+import { Button, Container, FormLabel, Image, Modal } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Center from './center';
@@ -33,15 +33,18 @@ const[email, setEmail] = useState('');
 
 const[password, setPassword] = useState('');
 
+/*
 const[manager, setManager] = useState(false);
 const handleChange = () => {
 
   setManager(!manager);
 };
 
+*/
+
 const handleSubmit=(e)=>{
   e.preventDefault()
-  const user={name,email,password,manager}
+  const user={name,email,password} //manager
   console.log(user)
   fetch("http://localhost:8080/addUser", {
     method:"POST",
@@ -84,7 +87,7 @@ const handleLogin = (e) => {
     }).then((res) =>{
       console.log(res);
       setToken(res);
-      window.location.href="/movietable";
+      window.location.href="/StatisticsPage";
     });
 }
 
@@ -141,14 +144,7 @@ const handleLogin = (e) => {
       <FloatingLabel controlId="floatingPassword" label="Password">
         <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
       </FloatingLabel>
-      <Form.Check 
-        type="switch"
-        id="custom-switch"
-        label="Manager"
-        value = {manager}
-        onChange={handleChange}
-        style = {{marginTop: "5%"}}
-      />
+      <Image src="holder.js/171X180" thumbnail/>
       </Modal.Body>
       <Modal.Footer>
         <Button variant = "outline-info" onClick = {handleSubmit}>Submit</Button>
