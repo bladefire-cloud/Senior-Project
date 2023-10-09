@@ -1,11 +1,13 @@
-import LoginForm from "../Components/LoginForm";
+import NavySeal from "../Components/NavySeal";
 
-const StatisticsPage = ({setToken}) => {
+
+
+const StatisticsPage = () => {
         
     return (
         // Listing contents in table format:
         <div style={{backgroundColor: '#282c34', height: '100vh'}}>
-            <LoginForm setToken={setToken}/>
+          <NavySeal/>
         </div>
     )
 }
