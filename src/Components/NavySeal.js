@@ -7,7 +7,7 @@ const NavySeal = () => {
 
     const[navySeal, setNavySeal] = useState([])
 
-    const pftType = "getNavySeals"
+    //const pftType = "getNavySeals"
 
     useEffect(()=>{
         fetch("http://localhost:8080/getNavySeals")
