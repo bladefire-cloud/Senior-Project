@@ -168,7 +168,7 @@ const handleLogin = (e) => {
       <Image src="raiderlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
       <Image src="reconlogo.jpg" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
       <Image src="marsoclogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
-      <Image src="pjlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%', marginLeft: '20453e76yu5t%'}} onClick={(e)=>setPft("NavySeal")}/>
+      <Image src="pjlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%', marginLeft: '20%'}} onClick={(e)=>setPft("NavySeal")}/>
       <Image src="tacplogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
       <Image src="cctlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
       </Modal.Body>

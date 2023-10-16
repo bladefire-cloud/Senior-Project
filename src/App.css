@@ -38,3 +38,12 @@
     transform: rotate(360deg);
   }
 }
+
+img:hover{
+  transform:scale(1.25);
+  opacity: 20%;
+}
+
+img:checked{
+  border: 4px solid #f00;     
+}
