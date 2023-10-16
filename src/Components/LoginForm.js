@@ -160,8 +160,17 @@ const handleLogin = (e) => {
       <h4>Select Ship Date</h4>
       <DatePicker selected={shipDate} onChange={(date) => setShipDate(date)}/>
       <h4 style={{ marginTop: '5%', marginBottom: '5%' }}>Select Unit</h4>
-      <Image src="seallogo.png" thumbnail style={{width:100, height:100}} onClick={(e)=>setPft("NavySeal")}/>
-      <Image src="rescueswimmerlogo.png" thumbnail style={{width:100, height:100}} onClick={(e)=>setPft("RescueSwimmer")}/>
+      <Image src="seallogo.png" thumbnail style={{width:150, height:140, marginRight: '2%', marginBottom: '2%', marginLeft: '10%'}} onClick={(e)=>setPft("NavySeal")}/>
+      <Image src="swcclogo.jpg" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("SWCC")}/>
+      <Image src="rescueswimmerlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("RescueSwimmer")}/>
+      <Image src="rangerlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("Ranger")}/>
+      <Image src="greenberetlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%', marginLeft: '10%'}} onClick={(e)=>setPft("NavySeal")}/>
+      <Image src="raiderlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
+      <Image src="reconlogo.jpg" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
+      <Image src="marsoclogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
+      <Image src="pjlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%', marginLeft: '20453e76yu5t%'}} onClick={(e)=>setPft("NavySeal")}/>
+      <Image src="tacplogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
+      <Image src="cctlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
       </Modal.Body>
       <Modal.Footer>
         <Button variant = "outline-info" onClick = {handleSubmit}>Submit</Button>
