@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './Pages/LoginPage';
 import HomePage from './Pages/HomePage';
 import { Routes,Route } from 'react-router-dom';
-import StatisticsPage from './Pages/StatisticsPage';
+import Activities from './Pages/Activities';
+import LineGraph from './Pages/LineGraph';
 
 function setToken(userToken) {
   console.log("tokenTEst")
@@ -37,7 +38,8 @@ function App() {
      <Routes>
       <Route path="/" exact={true} index element={<LoginPage setToken={setToken}/>}/>  
       <Route path="/HomePage" exact={true} element={<HomePage/>}/>
-      <Route path="/StatisticsPage" exact={true} element={<StatisticsPage/>}/>
+      <Route path="/LineGraph" exact={true} element={<LineGraph/>}/>
+      <Route path="/Activities" exact={true} element={<Activities/>}/>
     </Routes>
     </div>
   );

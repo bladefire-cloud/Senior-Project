@@ -1,50 +1,65 @@
-import { Container, Form, InputGroup } from "react-bootstrap";
+import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import Center from "../Components/center";
+import NavBar from "../Components/NavBar";
+import { useState } from "react";
 
 
-const HomePage = ({setToken}) => {
+const HomePage = () => {
         
+
+  const[swim, setSwim] = useState('');
+
+    const[pushUps, setPushUps] = useState('');
+
+    const[sitUps, setSitUps] = useState('');
+
+    const[pullUps, setPullUps] = useState('');
+
+    const[chinUps, setChinUps] = useState('');
+
+    const[run, setRun] = useState('');
+
+    const[ruck, setRuck] = useState('');
+
+    const handleSubmit=(e)=>{
+        const activity={swim,pushUps,sitUps,pullUps,chinUps,run, ruck}
+        fetch("http://localhost:8080/addActivity", {method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(activity)
+        }).then((res)=>{
+        window.location.href="/Activities"
+        })
+    }
+
+
+
     return (
         // Listing contents in table format:
-        <div style={{backgroundColor: '#282c34', height: '100vh'}}>
+        <div style={{backgroundColor: '#282c34', height: '100%'}}>
+          <NavBar/>
+          <Center>
           <Container>
-          <InputGroup className="mb-3">
-        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-        <Form.Control
-          placeholder="Username"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-      </InputGroup>
-
-      <InputGroup className="mb-3">
-        <Form.Control
-          placeholder="Recipient's username"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
-        <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
-      </InputGroup>
-
-      <Form.Label htmlFor="basic-url">Your vanity URL</Form.Label>
-      <InputGroup className="mb-3">
-        <InputGroup.Text id="basic-addon3">
-          https://example.com/users/
-        </InputGroup.Text>
-        <Form.Control id="basic-url" aria-describedby="basic-addon3" />
-      </InputGroup>
-
-      <InputGroup className="mb-3">
-        <InputGroup.Text>$</InputGroup.Text>
-        <Form.Control aria-label="Amount (to the nearest dollar)" />
-        <InputGroup.Text>.00</InputGroup.Text>
-      </InputGroup>
-
-      <InputGroup>
-        <InputGroup.Text>With textarea</InputGroup.Text>
-        <Form.Control as="textarea" aria-label="With textarea" />
-      </InputGroup>
-    
+          <Form>
+            <Row>
+              <Col>
+                <Form.Label style={{color: "White", textUnderlineOffset: '5px', marginBottom: '5%'}}><u>Enter New Activity:</u></Form.Label>
+                <Form.Control placeholder="Swim" style={{marginBottom: '5%'}} value={swim} onChange={(e)=>setSwim(e.target.value)}/>
+                <Form.Control placeholder="Push Ups" style={{marginBottom: '5%'}} value={pushUps} onChange={(e)=>setSwim(e.target.value)}/>
+                <Form.Control placeholder="Sit Ups" style={{marginBottom: '5%'}} value={sitUps} onChange={(e)=>setSwim(e.target.value)}/>
+                <Form.Control placeholder="Pull Ups" style={{marginBottom: '5%'}} value={pullUps} onChange={(e)=>setSwim(e.target.value)}/>
+                <Form.Control placeholder="Chin Ups" style={{marginBottom: '5%'}} value={chinUps} onChange={(e)=>setSwim(e.target.value)}/>
+                <Form.Control placeholder="Run" style={{marginBottom: '5%'}} value={run} onChange={(e)=>setSwim(e.target.value)}/>
+                <Form.Control placeholder="Ruck" style={{marginBottom: '5%'}} value={ruck} onChange={(e)=>setSwim(e.target.value)}/>
+                <Button variant="outline-secondary">Submit</Button>
+              </Col>
+              <Col>
+                <Form.Label style={{color: "white", textUnderlineOffset: '5px', marginBottom: '5%'}}><u>Goals:</u></Form.Label>
+                <Form.Control disabled placeholder="Last name" />
+              </Col>
+            </Row>
+          </Form>
           </Container>
+          </Center>
         </div>
     )
 }

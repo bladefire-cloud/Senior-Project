@@ -96,7 +96,7 @@ const handleLogin = (e) => {
     }).then((res) =>{
       console.log(res);
       setToken(res);
-      window.location.href="/StatisticsPage";
+      window.location.href="/HomePage";
     });
 }
 
