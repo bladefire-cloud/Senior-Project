@@ -142,21 +142,21 @@ const handleLogin = (e) => {
       </Modal.Header>
       <Modal.Body>
         <h4>User Info</h4>
-        <FloatingLabel controlId = "floatingName" label="Name" >
+        <Form.Label controlId = "floatingName" label="Name" >
           <Form.Control type ="text" placeholder="First Name" style={{marginBottom: '5%'}} value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
-          </FloatingLabel>
-          <FloatingLabel controlId = "floatingName" label="Last Name" >
+          </Form.Label>
+          <Form.Label controlId = "floatingName" label="Last Name" >
           <Form.Control type ="text" placeholder="Last Name" style={{marginBottom: '5%'}} value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
-          </FloatingLabel>
-        <FloatingLabel
+          </Form.Label>
+        <Form.Label
         controlId="floatingInput"
         label="Email address"
         className="mb-3">
         <Form.Control type="email" placeholder="name@example.com"  value={email} onChange={(e)=>setEmail(e.target.value)} style={{marginTop:'5%'}}/>
-      </FloatingLabel>
-      <FloatingLabel controlId="floatingPassword" label="Password">
+      </Form.Label>
+      <Form.Label controlId="floatingPassword" label="Password">
         <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} style={{marginBottom:'5%'}}/>
-      </FloatingLabel>
+      </Form.Label>
       <h4>Select Ship Date</h4>
       <DatePicker selected={shipDate} onChange={(date) => setShipDate(date)}/>
       <h4 style={{ marginTop: '5%', marginBottom: '5%' }}>Select Unit</h4>
