@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import { Container, Table } from "react-bootstrap"
-import Center from "./center"
+import Center from "../Components/center"
+import NavBar from "../Components/NavBar"
 
 
 const NavySeal = () => {
 
     const[navySeal, setNavySeal] = useState([])
 
-    //const pftType = "getNavySeals"
 
     useEffect(()=>{
         fetch("http://localhost:8080/getNavySeals")
@@ -21,7 +21,8 @@ const NavySeal = () => {
     )
 
     return (
-        <>
+        <div style={{backgroundColor: '#282c34', height: '100vh'}}>
+            <NavBar/>
         <Center>
         <Container>
             <Table striped bordered hover size="sm" responsive="sm">
@@ -51,7 +52,7 @@ const NavySeal = () => {
             </Table>
         </Container>
         </Center>
-        </>
+        </div>
 
 
     )

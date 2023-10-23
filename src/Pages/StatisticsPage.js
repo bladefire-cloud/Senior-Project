@@ -1,4 +1,5 @@
-import NavySeal from "../Components/NavySeal";
+import NavBar from "../Components/NavBar";
+import HomePage from "./HomePage";
 
 
 
@@ -7,9 +8,11 @@ const StatisticsPage = () => {
     return (
         // Listing contents in table format:
         <div style={{backgroundColor: '#282c34', height: '100vh'}}>
-          <NavySeal/>
+          <NavBar/>
         </div>
     )
 }
 
 export default StatisticsPage;
+
+//<NavySeal/>
