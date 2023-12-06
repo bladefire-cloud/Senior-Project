@@ -75,28 +75,28 @@ recognized team of rescue-swimmer operators, the elite United States Coast Guard
         <Image src="marsoclogo.png" thumbnail style={{width:150, height:140}}/>
         <div style={imageText}>
           <h1>Marine Forces Special Operations Command (MARSOC)</h1>
-          <p>MARSOC DESCRIPTION</p>
+          <p>The Marine Forces Special Operations Command, or MARSOC, is the Marine component of America’s highly specialized and uniquely capable U.S. Special Operations Command. In technical terms, MARSOC is tasked with direct action, foreign internal defense, special reconnaissance, and many other high-stakes operations at the sharpest edge of American foreign policy.</p>
         </div>
         </div>
         <div style={group}>
         <Image src="pjlogo.png" thumbnail style={{width:150, height:140}}/>
         <div style={imageText}>
           <h1>Pararescue Specialist (PJ)</h1>
-          <p>This is PJ Description</p>
+          <p>Air Force Special Tactics pararescuemen, also known as PJ’s, are the only Department of Defense specialty specifically trained and equipped to conduct conventional or unconventional rescue operations. These battlefield Airmen are the ideal force for personnel recovery and combat search and rescue. The majority of pararescuemen fall under traditional rescue squadrons in Air Combat Command.</p>
         </div>
         </div>
         <div style={group}>
         <Image src="tacplogo.png" thumbnail style={{width:150, height:140}}/>
         <div style={imageText}>
           <h1>Tactical Air Control Party Specialist (TACP)</h1>
-          <p>This is TACP Description</p>
+          <p> Special Tactics TACP Airmen deploy with Special Operations Forces to integrate air combat power and surface fires into the ground scheme of maneuver, enabling dynamic synergetic, and lethal firepower on today’s battlefield. TACP ’s embed with ground forces to perform all air-to-ground integration, surface-to-surface fire integration (artillery), rotary wing and fixed wing air combat support, naval gunfire, medical evacuations and electronic warfare such as jamming and intelligence. </p>
         </div>
         </div>
         <div style={group}>
         <Image src="cctlogo.png" thumbnail style={{width:150, height:140}}/>
         <div style={imageText}>
           <h1>Combat Controller Specialist (CCT)</h1>
-          <p>This is CCT Description</p>
+          <p>Whether calling in “danger close” airstrikes or landing aircraft in impossible places, Combat Controllers (CCT) are first there, providing Global Access and Precision Strike capabilities. CCT are known for merging the air and ground power. Often embedded with joint special operations teams, CCT merge seamlessly with their military counterparts as they are proficient in small team tactics and advanced infiltration and exfiltration techniques.</p>
         </div>
         </div>
         </div>
