@@ -5,6 +5,7 @@ import HomePage from './Pages/HomePage';
 import { Routes,Route } from 'react-router-dom';
 import Activities from './Pages/Activities';
 import LineGraph from './Pages/LineGraph';
+import InfoPage from './Pages/InfoPage';
 
 function setToken(userToken) {
   console.log("tokenTEst")
@@ -21,6 +22,7 @@ function getToken() {
 function App() {
 
   const token = getToken();
+  
 
   if(!token){
 
@@ -40,10 +42,12 @@ function App() {
       <Route path="/HomePage" exact={true} element={<HomePage/>}/>
       <Route path="/LineGraph" exact={true} element={<LineGraph/>}/>
       <Route path="/Activities" exact={true} element={<Activities/>}/>
+      <Route path="/InfoPage" exact={true} element={<InfoPage/>}/>
     </Routes>
     </div>
   );
 }
+
 
 export default App;
 

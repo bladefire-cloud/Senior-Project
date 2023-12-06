@@ -48,7 +48,17 @@ const LineGraph = () => {
             <Legend/>
         </LineChart>
         </ResponsiveContainer>
-        
+        <ResponsiveContainer width='35%' height={300}>
+        <LineChart  data= {activities} >
+            <Line type="monotone" dataKey="run" stroke="lime" strokeWidth={3} activeDot={{r:8}}/>
+            <Line type="monotone" dataKey="ruck" stroke="yellow" strokeWidth={3} activeDot={{r:8}}/>
+            <CartesianGrid stroke="#ccc"/>
+            <XAxis dataKey="entry_id"/>
+            <YAxis type="category"/>
+            <Tooltip/>
+            <Legend/>
+        </LineChart>
+        </ResponsiveContainer>
         </Center>
         </div>
     )

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Container, FormLabel, Image, Modal } from 'react-bootstrap';
+import { Button, Container, FormLabel, Image, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Center from './center';
@@ -29,6 +29,18 @@ const handleClose = () => {
   setShow(false);
 }
 
+const [goalShow, setGoalShow] = useState(false);
+
+const handleGoalShow = () => {
+  console.log("handleGoalShow");
+  setGoalShow(true);
+}
+
+const handleGoalClose = () => {
+  console.log("handleGoalClose");
+  setGoalShow(false);
+}
+
 const[firstName, setFirstName]= useState('');
 
 const[lastName, setLastName] = useState('');
@@ -41,19 +53,35 @@ const[password, setPassword] = useState('');
 
 const [pft, setPft] = useState('');
 
+const [swim, setSwim] = useState('');
 
-/*
-const[manager, setManager] = useState(false);
-const handleChange = () => {
+const [pushUps, setPushUps] = useState('');
 
-  setManager(!manager);
-};
+const [sitUps, setSitUps] = useState('');
 
-*/
+const [pullUps, setPullUps] = useState('');
 
-const handleSubmit=(e)=>{
-  e.preventDefault()
-  const user={firstName,lastName,shipDate,email,password, pft} //manager
+const [chinUps, setChinUps] = useState('');
+
+const [run, setRun] = useState('');
+
+const [ruck, setRuck] = useState('');
+
+const handleGoalsSubmit=()=>{
+  const goals={email, swim, pushUps, sitUps, pullUps, chinUps, run, ruck} 
+  console.log(goals)
+  fetch("http://localhost:8080/goal", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(goals)
+  }).then((res)=>{
+  console.log("New goals added")
+  window.location.href="/"
+  })
+}
+
+const handleSubmit=()=>{
+  const user={firstName,lastName,shipDate,email,password, pft} 
   console.log(user)
   fetch("http://localhost:8080/addUser", {
     method:"POST",
@@ -61,7 +89,7 @@ const handleSubmit=(e)=>{
     body:JSON.stringify(user)
   }).then((res)=>{
   console.log("New user added")
-  window.location.href="/"
+  //window.location.href="/"
   })
 }
 
@@ -100,7 +128,7 @@ const handleLogin = (e) => {
     });
 }
 
-    
+
 
   return (
     <>
@@ -152,28 +180,103 @@ const handleLogin = (e) => {
         controlId="floatingInput"
         label="Email address"
         className="mb-3">
-        <Form.Control type="email" placeholder="name@example.com"  value={email} onChange={(e)=>setEmail(e.target.value)} style={{marginTop:'5%'}}/>
+        <Form.Control type="email" placeholder="name@example.com"  value={email} onChange={(e)=> {setEmail(e.target.value)}} style={{marginTop:'5%'}}/>
       </Form.Label>
       <Form.Label controlId="floatingPassword" label="Password">
         <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} style={{marginBottom:'5%'}}/>
       </Form.Label>
       <h4>Select Ship Date</h4>
-      <DatePicker selected={shipDate} onChange={(date) => setShipDate(date)}/>
+      {/* <FloatingLabel controlId="floatingInput" label={"Ship Date:"} className="mb-3">
+          <Form.Control type="date" placeholder="Date"  name="shipDate" onChange={ (e) => onInputChange(e)} />
+          </FloatingLabel> */}
+      <DatePicker selected={shipDate} onChange={(date) => setShipDate(date)} dateFormat="yyyy-MM-dd"/> 
       <h4 style={{ marginTop: '5%', marginBottom: '5%' }}>Select Unit</h4>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Navy Seal</Tooltip>}>
       <Image src="seallogo.png" thumbnail style={{width:150, height:140, marginRight: '2%', marginBottom: '2%', marginLeft: '10%'}} onClick={(e)=>setPft("NavySeal")}/>
+      </OverlayTrigger>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Specail Warfare Combat Crewman (SWCC)</Tooltip>}>
       <Image src="swcclogo.jpg" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("SWCC")}/>
+      </OverlayTrigger>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Rescue Swimmer</Tooltip>}>
       <Image src="rescueswimmerlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("RescueSwimmer")}/>
+      </OverlayTrigger>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Army Ranger</Tooltip>}>
       <Image src="rangerlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("Ranger")}/>
-      <Image src="greenberetlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%', marginLeft: '10%'}} onClick={(e)=>setPft("NavySeal")}/>
-      <Image src="raiderlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
-      <Image src="reconlogo.jpg" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
-      <Image src="marsoclogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
-      <Image src="pjlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%', marginLeft: '20%'}} onClick={(e)=>setPft("NavySeal")}/>
-      <Image src="tacplogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
-      <Image src="cctlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("NavySeal")}/>
+      </OverlayTrigger>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Green Beret</Tooltip>}>
+      <Image src="greenberetlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%', marginLeft: '10%'}} onClick={(e)=>setPft("GreenBeret")}/>
+      </OverlayTrigger>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Marine Raider</Tooltip>}>
+      <Image src="raiderlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("Raider")}/>
+      </OverlayTrigger>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Marine Recon</Tooltip>}>
+      <Image src="reconlogo.jpg" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("Recon")}/>
+      </OverlayTrigger>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Marine Forces Special Operations Command (MARSOC)</Tooltip>}>
+      <Image src="marsoclogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("MARSOC")}/>
+      </OverlayTrigger>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Pararescue Specialist (PJ)</Tooltip>}>
+      <Image src="pjlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%', marginLeft: '20%'}} onClick={(e)=>setPft("PJ")}/>
+      </OverlayTrigger>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Tactical Air Control Party Specialist (TACP)</Tooltip>}>
+      <Image src="tacplogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("TACP")}/>
+      </OverlayTrigger>
+      <OverlayTrigger key='bottom' placement='bottom' overlay={<Tooltip>Combat Controller Specialist (CCT)</Tooltip>}>
+      <Image src="cctlogo.png" thumbnail style={{width:140, height:140, marginRight: '2%', marginBottom: '2%'}} onClick={(e)=>setPft("CCT")}/>
+      </OverlayTrigger>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant = "outline-info" onClick = {handleSubmit}>Submit</Button>
+        <Button variant = "outline-info" onClick = {() => {handleSubmit(); handleClose(); handleGoalShow();}}>Submit</Button>
+      </Modal.Footer>
+      </Modal>
+
+      <Modal 
+      show={goalShow} 
+      onHide = {handleGoalClose}
+      backdrop="static"
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Goals
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>User Info</h4>
+        <FloatingLabel controlId="floatingInput" 
+          label= "Swim: " className="mb-3" >
+          <Form.Control type="text" placeholder="swim" name="swim" value={swim} onChange={(e)=>setSwim(e.target.value)} 
+           />
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingInput" label="Push Ups:" className="mb-3"   >
+          <Form.Control type="Push Ups" placeholder="Push Ups"  name="pushUps" value={pushUps} onChange={(e)=>setPushUps(e.target.value)}
+          />
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingInput" label="Sit Ups:" className="mb-3">
+          <Form.Control type="text" placeholder="Sit Ups" name="sitUps" value={sitUps} onChange={(e)=>setSitUps(e.target.value)} 
+          />
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingInput" label="Pull Ups:" className="mb-3" >
+          <Form.Control type="text" placeholder="Pull Ups" name="pullUps" value={pullUps} onChange={(e)=>setPullUps(e.target.value)}
+          />
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingInput" label="Chin Ups:"className="mb-3">
+          <Form.Control type="text" placeholder="Chin Ups"  name="chinUps" value={chinUps} onChange={(e)=>setChinUps(e.target.value)} 
+          />
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingInput" label="Run:"className="mb-3"  >
+          <Form.Control type="text" placeholder="Run" name="run" value={run} onChange={(e)=>setRun(e.target.value)}
+          />
+          </FloatingLabel>
+          <FloatingLabel controlId="floatingInput" label="Ruck:" className="mb-3"  >
+          <Form.Control type="text" placeholder="Ruck" name="ruck" value={ruck} onChange={(e)=>setRuck(e.target.value)}
+          />
+          </FloatingLabel>
+          </Modal.Body>
+          <Modal.Footer>
+          <Button variant='outline-secondary' onClick={handleGoalsSubmit}>Save Changes</Button>
       </Modal.Footer>
       </Modal>
 
